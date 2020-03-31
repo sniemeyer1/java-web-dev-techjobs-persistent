@@ -21,14 +21,16 @@ public class EmployerController {
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
         model.addAttribute(new Employer());
+        model.addAttribute("employers", employerRepository.findAll());
+
         return "employers/add";
     }
 
     @PostMapping("add")
     public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer,
-                                    Errors errors, Model model) {
+                                         Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("job", "Add Employer");
+            model.addAttribute("employer", "Add Employer");
             return "employers/add";
         }
         employerRepository.save(newEmployer);
