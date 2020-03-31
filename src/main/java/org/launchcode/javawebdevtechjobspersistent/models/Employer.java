@@ -1,7 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
-import javax.validation.Valid;
+
 
 @Entity
 public class Employer extends AbstractEntity {
